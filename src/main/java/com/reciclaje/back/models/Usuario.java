@@ -30,7 +30,7 @@ public class Usuario {
 
     @Getter(AccessLevel.NONE)
     @Setter(AccessLevel.NONE)
-    @OneToMany(mappedBy = "usuario")
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
     private Set<RegistroTransformador> registrosTransformador;
 
     @Getter(AccessLevel.NONE)

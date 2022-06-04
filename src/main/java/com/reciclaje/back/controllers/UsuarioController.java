@@ -34,15 +34,14 @@ public class UsuarioController {
         return this.usuarioService.obtenerPorId(usuario);
     }
 
-    /*
-    @DeleteMapping( path = "/{id}")
-    public String eliminarPorId(@PathVariable("id") String id){
-        boolean ok = this.usuarioService.eliminarUsuario(id);
+    @DeleteMapping( path = "eliminar-usuario/{usuario}")
+    public String eliminarPorId(@PathVariable("usuario") String usuario){
+        boolean ok = this.usuarioService.eliminarUsuario(usuario);
         if (ok){
-            return "Se eliminó el usuario con id " + id;
+            return "Se eliminó el usuario " + usuario;
         }else{
-            return "No pudo eliminar el usuario con id" + id;
+            return "No existe el usuario " + usuario;
         }
-    }*/
+    }
 
 }
