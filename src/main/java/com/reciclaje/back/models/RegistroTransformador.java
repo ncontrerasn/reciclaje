@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "registro_tranformador")
+@Table(name = "registro_transformador")
 
 public class RegistroTransformador {
 
