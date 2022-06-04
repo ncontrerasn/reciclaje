@@ -1,8 +1,5 @@
 package com.reciclaje.back.models;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
 import javax.persistence.*;
 import java.util.Set;
 
@@ -16,13 +13,9 @@ public class Rol {
     private Integer id_rol;
     private String nombre;
 
-    @Getter(AccessLevel.NONE)
-    @Setter(AccessLevel.NONE)
     @OneToMany(mappedBy = "usuario_rol")
     private Set<Usuario> usuarios;
 
-    @Getter(AccessLevel.NONE)
-    @Setter(AccessLevel.NONE)
     @OneToMany(mappedBy = "usuario")
     private Set<RegistroTransformador> registrosTransformador;
 
@@ -41,6 +34,5 @@ public class Rol {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
 
 }

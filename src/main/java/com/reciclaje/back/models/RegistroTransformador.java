@@ -1,11 +1,9 @@
 package com.reciclaje.back.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
 import javax.persistence.*;
 import lombok.*;
+import java.time.LocalDate;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,8 +19,6 @@ public class RegistroTransformador {
 
     @JsonIgnore
     @ManyToOne
-    @Getter(AccessLevel.NONE)
-    @Setter(AccessLevel.NONE)
     @JoinColumn(name = "usuario", referencedColumnName = "id_usuario",updatable = false, insertable = false)
     private Usuario transformador_usuario;
 
@@ -31,13 +27,15 @@ public class RegistroTransformador {
     private Integer pet_comprado;
     private Integer pet_utilizado;
     private String usuario;
+    private LocalDate localDate;
 
-    public RegistroTransformador(Integer botellas_fabricadas, Integer porcentaje_pet_reciclado, Integer pet_comprado, Integer pet_utilizado, String usuario) {
+    public RegistroTransformador(Integer botellas_fabricadas, Integer porcentaje_pet_reciclado, Integer pet_comprado, Integer pet_utilizado, String usuario, LocalDate localDate) {
         this.botellas_fabricadas = botellas_fabricadas;
         this.porcentaje_pet_reciclado = porcentaje_pet_reciclado;
         this.pet_comprado = pet_comprado;
         this.pet_utilizado = pet_utilizado;
         this.usuario = usuario;
+        this.localDate = localDate;
     }
 
     public String getUsuario() {
@@ -94,5 +92,13 @@ public class RegistroTransformador {
 
     public void setPet_utilizado(Integer pet_utilizado) {
         this.pet_utilizado = pet_utilizado;
+    }
+
+    public LocalDate getLocalDate() {
+        return localDate;
+    }
+
+    public void setLocalDate(LocalDate localDate) {
+        this.localDate = localDate;
     }
 }

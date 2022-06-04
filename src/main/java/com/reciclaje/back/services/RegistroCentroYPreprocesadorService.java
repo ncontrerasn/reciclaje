@@ -1,5 +1,7 @@
 package com.reciclaje.back.services;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import com.reciclaje.back.dto.RegistroCentroYPreprocesadorDto;
 import com.reciclaje.back.models.RegistroCentroYPreprocesador;
@@ -18,7 +20,9 @@ public class RegistroCentroYPreprocesadorService {
     }
 
     public com.reciclaje.back.models.RegistroCentroYPreprocesador guardarRegistro(RegistroCentroYPreprocesadorDto registroTransformadorDto){
-        RegistroCentroYPreprocesador registroCentroYPreprocesador = new RegistroCentroYPreprocesador(registroTransformadorDto.getPet_comprado(), registroTransformadorDto.getPet_procesado(), registroTransformadorDto.getPet_desechado(), registroTransformadorDto.getPet_perdido(), registroTransformadorDto.getPet_vendido(), registroTransformadorDto.getPrecio_compra(), registroTransformadorDto.getPrecio_venta(), registroTransformadorDto.getUsuario());
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDate now = LocalDate.now();
+        RegistroCentroYPreprocesador registroCentroYPreprocesador = new RegistroCentroYPreprocesador(registroTransformadorDto.getPet_comprado(), registroTransformadorDto.getPet_procesado(), registroTransformadorDto.getPet_desechado(), registroTransformadorDto.getPet_perdido(), registroTransformadorDto.getPet_vendido(), registroTransformadorDto.getPrecio_compra(), registroTransformadorDto.getPrecio_venta(), registroTransformadorDto.getUsuario(), now);
         return registroCentroYPreprocesadorRepository.save(registroCentroYPreprocesador);
     }
 

@@ -1,11 +1,10 @@
 package com.reciclaje.back.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
 import javax.persistence.*;
 import lombok.*;
+
+import java.time.LocalDate;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -27,13 +26,14 @@ public class RegistroCentroYPreprocesador {
     private Integer precio_compra;
     private Integer precio_venta;
     private String usuario;
+    private LocalDate localDate;
 
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "usuario", referencedColumnName = "id_usuario",updatable = false, insertable = false)
     private Usuario centro_preprocesador_usuario;
 
-    public RegistroCentroYPreprocesador(Integer pet_comprado, Integer pet_procesado, Integer pet_desechado, Integer pet_perdido, Integer pet_vendido, Integer precio_compra, Integer precio_venta, String usuario) {
+    public RegistroCentroYPreprocesador(Integer pet_comprado, Integer pet_procesado, Integer pet_desechado, Integer pet_perdido, Integer pet_vendido, Integer precio_compra, Integer precio_venta, String usuario, LocalDate localDate) {
         this.pet_comprado = pet_comprado;
         this.pet_procesado = pet_procesado;
         this.pet_desechado = pet_desechado;
@@ -42,6 +42,7 @@ public class RegistroCentroYPreprocesador {
         this.precio_compra = precio_compra;
         this.precio_venta = precio_venta;
         this.usuario = usuario;
+        this.localDate = localDate;
     }
 
     public Integer getId_registro_centro_preprocesador() {
@@ -114,5 +115,13 @@ public class RegistroCentroYPreprocesador {
 
     public void setUsuario(String usuario) {
         this.usuario = usuario;
+    }
+
+    public LocalDate getLocalDate() {
+        return localDate;
+    }
+
+    public void setLocalDate(LocalDate localDate) {
+        this.localDate = localDate;
     }
 }

@@ -1,7 +1,6 @@
 package com.reciclaje.back.controllers;
 
 import java.util.ArrayList;
-
 import com.reciclaje.back.dto.RegistroTransformadorDto;
 import com.reciclaje.back.models.RegistroTransformador;
 import com.reciclaje.back.services.RegistroTransformadorService;
