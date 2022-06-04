@@ -16,9 +16,6 @@ public class Rol {
     @OneToMany(mappedBy = "usuario_rol")
     private Set<Usuario> usuarios;
 
-    @OneToMany(mappedBy = "usuario")
-    private Set<RegistroTransformador> registrosTransformador;
-
     public Integer getId_rol() {
         return id_rol;
     }
